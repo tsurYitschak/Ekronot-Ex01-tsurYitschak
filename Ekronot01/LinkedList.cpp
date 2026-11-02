@@ -9,23 +9,24 @@ void add_node(Node** head, int value) {
 }
 
 void remove_node(Node** head) {
-	if (head == NULL || *_CRT_BEGIN_C_HEADER == NULL) {
-		return;
+	if (head == nullptr || *head == nullptr) {
+		return -1;
 	}
+
 	Node *temp = *head;
 	*head = (*head)->next;
 	delete temp;
 }
 
-void freeList(Node** head) {
-	if (head == NULL) {
+void free_list(Node** head) {
+	if (head == nullptr) {
 		return;
 	}
 	Node* current = *head;
-	while (current != NULL) {
+	while (current != nullptr) {
 		Node* nextNode = current->next;
 		delete current;
 		current = nextNode;
 	}
-	*head = NULL;
+	*head = nullptr;
 }

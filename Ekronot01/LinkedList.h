@@ -2,14 +2,14 @@
 #define LINKED_LIST_H
 
 struct Node {
-    int data;      
+    int num;      
     Node* next;     
-};
+}; Node
 
-void add_node(Node** headRef, int value);
+void add_node(Node** head, int value);
 
-void remove_node(Node** headRef);
+void remove_node(Node** head);
 
-void freeList(Node** headRef);
+void free_list(Node** head);
 
 #endif

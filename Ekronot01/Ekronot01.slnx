@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Ekronot01.vcxproj" />
+  <Project Path="Ekronot01.vcxproj" Id="a64d0e8a-4db4-4a28-a5ef-8dafe15e5e05" />
 </Solution>

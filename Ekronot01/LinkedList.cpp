@@ -2,15 +2,15 @@
 #include "LinkedList.h"
 
 void add_node(Node** head, int value) {
-	Node new_node = new Node();
-	new_node.num = value;
-	new_node.next = *head;
-	head = new_node;
+	Node *new_node = new Node;
+	new_node->num = value;
+	new_node->next = *head;
+	*head = new_node;
 }
 
 void remove_node(Node** head) {
 	if (head == nullptr || *head == nullptr) {
-		return -1;
+		return;
 	}
 
 	Node *temp = *head;

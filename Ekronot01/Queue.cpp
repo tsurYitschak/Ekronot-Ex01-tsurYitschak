@@ -3,7 +3,7 @@
 #include "Queue.h"
 
 void initQueue(Queue* q, unsigned int size) {
-	q->head = (int*)malloc(size*sizeof(int));
+	q->head = new int[size];
 	q->deq_index = 0;
 	q->enq_index = 0;
 	q->count = 0;
@@ -11,9 +11,7 @@ void initQueue(Queue* q, unsigned int size) {
 }
 
 void cleanQueue(Queue * q) {
-	for(int i = 0; i<q->size; i++){
-		free(q->head);
-	}
+	delete q->head;
 	q->deq_index = 0;
 	q->enq_index = 0;
 	q->count = 0;
@@ -29,8 +27,8 @@ void enqueue(Queue* q, unsigned int newValue) {
 	}
 		
 	q->head[q->enq_index] = newValue;
-	q->enq_index = (q->enq_index+1)%q->size;
-	q->count -= 1;
+	q->enq_index = (q->enq_index+1)%(q->size);
+	q->count += 1;
 }
 
 int dequeue(Queue* q) {
@@ -39,8 +37,8 @@ int dequeue(Queue* q) {
 	} 
 	int num = q->head[q->deq_index];
 	q->head[q->deq_index] = 0;
-	q->deq_index = (q->deq_index+1) % (q->size);
-	q->deq_index += 1;
+	q->deq_index = (q->deq_index+1)%(q->size);
+	q->count -= 1;
 	return num;
 }
 
@@ -57,11 +55,5 @@ bool isFull(Queue* s){
 		return true;
 	} else{
 		return false;
-	}
-}
-
-void print_Queue(Queue *q){
-	for(int i = 0; i < q->size; i++){
-		printf("%d ", *(q->head+i));
 	}
 }

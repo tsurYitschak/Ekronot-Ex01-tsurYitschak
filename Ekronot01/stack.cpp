@@ -16,7 +16,7 @@ void push(Stack* s, unsigned int element) {
 	if (s == nullptr) {
 		return;
 	}
-	add_node(&(s->topNode), element);
+	add_node(&(s->head), element);
 	s->count += 1;
 }
 
@@ -25,7 +25,7 @@ int pop(Stack* s) {
 		return -1;
 	}
 
-	num = s->head->num;
+	int num = s->head->num;
 	remove_node(&(s->head));
 	return num;
 }

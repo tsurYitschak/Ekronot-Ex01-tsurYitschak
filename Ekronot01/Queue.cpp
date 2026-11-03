@@ -11,7 +11,7 @@ void initQueue(Queue* q, unsigned int size) {
 }
 
 void cleanQueue(Queue * q) {
-	delete q->head;
+	delete[] q->head;;
 	q->deq_index = 0;
 	q->enq_index = 0;
 	q->count = 0;
@@ -20,7 +20,6 @@ void cleanQueue(Queue * q) {
 void enqueue(Queue* q, unsigned int newValue) {
 	if (isEmpty(q)){
 		std::cout << "list is empty";
-		return;
 	} else if(isFull(q)){
 		std::cout << "list is full";
 		return;
@@ -55,11 +54,5 @@ bool isFull(Queue* s){
 		return true;
 	} else{
 		return false;
-	}
-}
-
-void print_Queue(Queue *q){
-	for(int i = 0; i < q->size; i++){
-		std::cout << *(q->head + i);
 	}
 }

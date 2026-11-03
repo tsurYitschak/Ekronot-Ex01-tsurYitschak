@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 #include "Queue.h"
 
 void initQueue(Queue* q, unsigned int size) {
@@ -19,10 +19,10 @@ void cleanQueue(Queue * q) {
 
 void enqueue(Queue* q, unsigned int newValue) {
 	if (isEmpty(q)){
-		printf("list is empty\n");
+		std::cout << "list is empty";
 		return;
 	} else if(isFull(q)){
-		printf("list is full\n");
+		std::cout << "list is full";
 		return;
 	}
 		
@@ -55,5 +55,11 @@ bool isFull(Queue* s){
 		return true;
 	} else{
 		return false;
+	}
+}
+
+void print_Queue(Queue *q){
+	for(int i = 0; i < q->size; i++){
+		std::cout << *(q->head + i);
 	}
 }
